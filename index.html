@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHT 2.0 </title>
+</head>
+<body>
+    <h1>CHT2.0</h1>
+    <hr>
+    <form method="post" action="Write.php">
+        <a>ユーザー名</a>
+        <input type="text" name="username">
+        <a>コメント</a>
+        <input type="text" name="coment">
+        <input type="submit" value="送信">
+    </form>
+    <input type="button" value="リロード" onclick="reload()">
+    <hr>
+    <iframe src="./chat1.php" name="MyFrame" width="80%" height="400px">
+        <h1>このブラウザーはIFrameに対応してないね。</h1>
+    </iframe>
+</body>
+</html>
+<script>
+    // 5秒ごとにページをリロードする
+    var myFrame = document.getElementById('MyFrame');
+            window.onload = function(){
+                setInterval(test, 2500)
+            };
+            const test = function(){
+                window.open('chat1.php','MyFrame')
+            }
+            function reload(){
+                window.open('chat1.php','MyFrame')
+            }
+</script>
+<style>
+    body{
+        background-color: darkslategray;
+        color:white;
+    }
+</style>

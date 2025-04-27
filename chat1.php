@@ -13,7 +13,12 @@
 $filePath = "./csvs/main.csv"; // <==ここっ！
 $handle = fopen($filePath, "r");
 while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
-	echo htmlspecialchars($data[0], ENT_QUOTES, 'UTF-8') . "さん:<br>" . htmlspecialchars($data[1], ENT_QUOTES, 'UTF-8') . "<br>" . htmlspecialchars($data[2], ENT_QUOTES, 'UTF-8') . "<hr>";
+    if ($data[3] == ""){
+        echo htmlspecialchars($data[0], ENT_QUOTES, 'UTF-8') . "さん:<br>" . htmlspecialchars($data[1], ENT_QUOTES, 'UTF-8') . "<br>" . htmlspecialchars($data[2], ENT_QUOTES, 'UTF-8') . "<br><a href='" . $data[4] . "'target='_parent'>" . $data[4] .  "</a><hr>";
+    }else{
+        echo htmlspecialchars($data[0], ENT_QUOTES, 'UTF-8') . "さん:<br>" . htmlspecialchars($data[1], ENT_QUOTES, 'UTF-8') . "<br>" . htmlspecialchars($data[2], ENT_QUOTES, 'UTF-8') . "<br><img src='./csvs/" . $data[3] . "' height='200px'><br><a href='" . $data[4] . "'target='_parent'>" . $data[4] .  "</a><hr>";
+    }
+	
     
 
 }

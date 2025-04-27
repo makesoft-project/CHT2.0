@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHT 2.0 </title>
+    <title>CHT 2.5 Preview</title>
 </head>
 <body>
-    <h1>CHT2.0</h1>
+    <h1>CHT2.5</h1>
     <hr>
-    <form method="post" action="Write.php">
+    <form method="post" action="Write.php" enctype="multipart/form-data">
         <a>ユーザー名</a>
         <input type="text" name="username">
         <a>コメント</a>
         <input type="text" name="coment">
+        <a>URLとか添付するなら...ね？</a>
+        <input type="text" name="URLs">
+        <a>画像はこっち(1枚まで)</a>
+        <label for="file">画像を選択:</label>
+        <input type="file" name="file" id="file">
         <input type="submit" value="送信">
     </form>
+
     <input type="button" value="リロード" onclick="reload()">
     <hr>
-    <iframe src="./chat1.php" name="MyFrame" width="80%" height="400px">
+    <iframe src="./chat1.php" name="MyFrame" width="80%" height="600px">
         <h1>このブラウザーはIFrameに対応してないね。</h1>
     </iframe>
 </body>
@@ -26,7 +32,7 @@
     // 5秒ごとにページをリロードする
     var myFrame = document.getElementById('MyFrame');
             window.onload = function(){
-                setInterval(test, 2500)
+                setInterval(test, 10000)
             };
             const test = function(){
                 window.open('chat1.php','MyFrame')
